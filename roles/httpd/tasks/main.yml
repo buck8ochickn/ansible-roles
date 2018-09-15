@@ -1,0 +1,12 @@
+#Ansible deployment for redirects
+#
+# by Nic Garner
+#
+---
+- name: Applying creating redirect host
+  hosts: web
+  roles: 
+    - basic
+    - httpd
+
+

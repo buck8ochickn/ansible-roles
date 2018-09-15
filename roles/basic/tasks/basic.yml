@@ -1,0 +1,24 @@
+#Ansible deployment for redirects
+#
+# by Nic Garner
+#
+---
+tasks:
+- name: Installed my favorate things
+  package: 
+    name: "{{ item }}" 
+    state: present
+  vars:
+    items:    
+    - vim
+    - wget
+    - htop
+    - yum-utils
+    - git
+    - mlocate
+
+- name: Refresh mlocates database
+  shell: updatedb
+
+
+
