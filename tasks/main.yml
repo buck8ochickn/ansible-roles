@@ -1,7 +1,0 @@
-#Ansible deployment for redirects
-#
-# by Nic Garner
-#
----
-- include: basic.yml
-
