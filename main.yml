@@ -1,0 +1,13 @@
+# Ansible play book for configuring httpd
+# by Nic Garner
+#
+# 16 Sept 2018
+#
+---
+- name: configure webserver
+  hosts: web
+  remote_user: root
+
+  roles:
+    - basic
+    - httpd
