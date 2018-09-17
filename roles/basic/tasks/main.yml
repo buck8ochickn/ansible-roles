@@ -3,22 +3,25 @@
 # by Nic Garner
 #
 ---
-tasks:
+#- name: Install repo for htop
+#  yum_repository:
+#    name: epel
+#    description: EPEL YUM repo
+#    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
 - name: Installed my favorate things
   package: 
     name: "{{ item }}" 
     state: present
-  vars:
-    items:    
+  with_items:    
     - vim
     - wget
-    - htop
     - yum-utils
     - git
     - mlocate
 
 - name: Refresh mlocates database
   shell: updatedb
-
+# add to cron
 
 
