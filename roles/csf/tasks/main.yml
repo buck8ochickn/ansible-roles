@@ -1,4 +1,6 @@
 # task to setup default firewall rules
 
 ---
-- name: 
+- include: basic_csf_config.yml
+#  removed for configuring
+#  - install_csf.yml

@@ -1,0 +1,13 @@
+# the basic config for csf
+# by nic garner
+# 
+---
+- name: add basic rules to allow
+  lineinfile: 
+    path: /etc/csf/csf.allow
+    state: present
+    line: 'Include /etc/csf/ansible_config/basic.allow'
+
+
+
+
