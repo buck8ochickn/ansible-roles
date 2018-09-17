@@ -4,12 +4,6 @@
 # 
 
 ---
-- name: check to see if csf is installed
-  command: csf -v
-  register: result
-  ignore_errors: true
-  changed_when: false 
-
 - name: create temp dir
   tempfile:
     state: directory
@@ -21,3 +15,28 @@
     src: https://download.configserver.com/csf.tgz
     dest: "{{ tempfile_output.path }}"
     remote_src: yes
+
+- name: install dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - wget 
+    - perl-libwww-perl.noarch 
+    - perl-Time-HiRes
+# net-tools only needed for centos7
+    - net-tools
+
+
+- name: stop and disable firewallD
+  service:
+    name: firewalld
+    state: stopped
+    enabled: no
+
+- name: run csf installer
+  command: sh install.sh
+  args: 
+    chdir: "{{ tempfile_output.path }}/csf"
+
+
