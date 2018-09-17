@@ -1,0 +1,10 @@
+# handlers for ansible
+# by nic garner
+# this should work for all playbooks
+#
+---
+# Restart CSF
+- name: restart csf
+  service:
+    name: csf
+    state: restarted

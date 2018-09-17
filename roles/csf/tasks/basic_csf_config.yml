@@ -1,13 +1,27 @@
 # the basic config for csf
 # by nic garner
 # 
+# copies the basic config make sure to 
 ---
+- name: make ansible_config directory
+  file: 
+    path: /etc/csf/ansible_config
+    state: directory
+    owner: root 
+    group: root
+    mode: 0600
+
 - name: add basic rules to allow
   lineinfile: 
     path: /etc/csf/csf.allow
     state: present
     line: 'Include /etc/csf/ansible_config/basic.allow'
 
-
-
-
+- name: copy files
+  copy:
+    src: dev/basic.allow
+    dest: /etc/csf/ansible_config
+    mode: 0600
+    owner: root
+    group: root
+   notify: restart csf
