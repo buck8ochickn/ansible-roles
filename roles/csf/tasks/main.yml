@@ -1,0 +1,23 @@
+# to install csf 
+# tested on centos7
+# version 0.1 beta
+# 
+
+---
+- name: check to see if csf is installed
+  command: csf -v
+  register: result
+  ignore_errors: true
+  changed_when: false 
+
+- name: create temp dir
+  tempfile:
+    state: directory
+    suffix: build_csf
+  register: tempfile_output 
+
+- name: download and unpack csf
+  unarchive:
+    src: https://download.configserver.com/csf.tgz
+    dest: "{{ tempfile_output.path }}"
+    remote_src: yes
