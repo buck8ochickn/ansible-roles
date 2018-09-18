@@ -4,7 +4,7 @@
 #
 ---
 # Restart CSF
-- name: restart csf
+- name:  restart_csf
   service:
     name: csf
     state: restarted
