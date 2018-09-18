@@ -19,6 +19,7 @@
     - yum-utils
     - git
     - mlocate
+    - nmap
 
 - name: Refresh mlocates database
   shell: updatedb

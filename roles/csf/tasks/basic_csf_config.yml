@@ -17,11 +17,23 @@
     state: present
     line: 'Include /etc/csf/ansible_config/basic.allow'
 
-- name: copy files
+- name: copy allow rules
   copy:
     src: dev/basic.allow
     dest: /etc/csf/ansible_config
     mode: 0600
     owner: root
     group: root
-   notify: restart csf
+  notify: restart_csf
+
+- name: copy csf main config
+  copy:
+    src: dev/csf.conf
+    dest: /etc/csf/csf.conf
+    force: yes
+    mode: 0600
+    owner: root
+    group: root
+  notify: restart_csf
+
+

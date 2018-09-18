@@ -1,0 +1,11 @@
+# imports the webspecific csf.conf values
+# by Nic Garner
+#
+---
+- name: open incoming webports
+  lineinfile:
+    path: /etc/csf/csf.conf
+    regexp: '^TCP_IN\s'
+    line: 'TCP_IN = "80,443"'
+  notify: restart_csf
+ 
