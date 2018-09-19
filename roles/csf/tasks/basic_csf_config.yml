@@ -34,6 +34,7 @@
     mode: 0600
     owner: root
     group: root
-  notify: restart_csf
-
+  notify: 
+    - restart_csf
+    - restart_lfd
 
