@@ -39,4 +39,16 @@
   args: 
     chdir: "{{ tempfile_output.path }}/csf"
 
+- name: enable csf
+  service:
+    name:  csf
+    enabled: yes
+  notify: restart_csf
+
+- name: enable lfd
+  service:
+    name: lfd
+    enabled: yes
+  notify: restart_lfd
+  
 

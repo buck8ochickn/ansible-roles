@@ -1,0 +1,6 @@
+# configure httpd and add my sites data
+# to be fancyer I can mount a special data partition for /html
+# by Nic Garner
+#
+---
+- include: install_httpd.yml

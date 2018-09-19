@@ -1,0 +1,5 @@
+# configures nicgarner.info
+# by Nic Garner
+#
+---
+- name: copy website data

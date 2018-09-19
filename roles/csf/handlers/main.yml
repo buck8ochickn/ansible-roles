@@ -4,7 +4,12 @@
 #
 ---
 # Restart CSF
-- name:  restart_csf
+- name: restart_csf
   service:
     name: csf
+    state: restarted
+
+- name: restart_lfd
+  service: 
+    name: lfd
     state: restarted

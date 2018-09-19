@@ -1,0 +1,20 @@
+# installs and sets the basic configuration for httpd
+# by Nic Garner
+#
+---
+- name: install httpd
+  package:
+    name: httpd
+    state: present
+
+- name: 
+  service:
+    name: httpd
+    state: enabled
+
+:q
+:wq
+
+
+
+notify: restart_httpd
