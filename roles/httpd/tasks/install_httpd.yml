@@ -7,14 +7,9 @@
     name: httpd
     state: present
 
-- name: 
+- name: enable httpd
   service:
     name: httpd
-    state: enabled
+    enabled: yes
 
-:q
-:wq
-
-
-
-notify: restart_httpd
+# notify: restart_httpd

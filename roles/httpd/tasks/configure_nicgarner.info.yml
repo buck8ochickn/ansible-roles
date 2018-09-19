@@ -3,3 +3,11 @@
 #
 ---
 - name: copy website data
+  copy: 
+    src: dev/nicgarner.info/
+    dest: /var/www/nicgarner.info/public_html/
+    owner: www-data
+    group: www-data
+    mode: 0755
+
+
