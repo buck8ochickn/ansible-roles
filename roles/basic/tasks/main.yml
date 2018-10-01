@@ -20,6 +20,7 @@
     - git
     - mlocate
     - nmap
+    - open-vm-tools
 
 - name: Refresh mlocates database
   shell: updatedb
