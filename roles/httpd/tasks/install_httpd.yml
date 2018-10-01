@@ -11,5 +11,4 @@
   service:
     name: httpd
     enabled: yes
-
-# notify: restart_httpd
+  notify: restart_httpd

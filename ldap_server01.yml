@@ -1,0 +1,11 @@
+# make me a ldap server yeeee
+# by nic garner
+#
+---
+- name: configure ldap server
+  host: ldap
+  remote_user: root
+
+  roles:
+    - basic
+    - ldap

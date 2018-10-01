@@ -2,12 +2,64 @@
 # by Nic Garner
 #
 ---
+- name: create sites available directory
+  file: 
+    path: /etc/httpd/sites-available
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+
+- name: create sites webroot for nicgarner.info
+  file:
+    path: /var/www/nicgarner.info/public_html
+    state: directory
+    owner: apache
+    group: apache
+    mode: 0755
+
+- name: create sites enabled directory
+  file:
+    path: /etc/httpd/sites-enabled
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: copy website data
   copy: 
     src: dev/nicgarner.info/
     dest: /var/www/nicgarner.info/public_html/
-    owner: www-data
-    group: www-data
+    owner: apache
+    group: apache
     mode: 0755
+
+- name: edit httpd config
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    state: present
+    line: 'IncludeOptional sites-enabled/*.conf'
+
+- name: copy over config
+  copy: 
+    src: dev/nicgarner.info.conf
+    dest: /etc/httpd/sites-available/nicgarner.info.conf
+    owner: root
+    group: apache
+    mode: 0755
+
+- name: create symbolic link for sites enabled
+  file: 
+    src: /etc/httpd/sites-available/nicgarner.info.conf
+    dest: /etc/httpd/sites-enabled/nicgarner.info.conf
+    state: link
+    mode: 0755
+    owner: root
+    group: apache
+  notify: restart_httpd
+  
+    
+
 
 

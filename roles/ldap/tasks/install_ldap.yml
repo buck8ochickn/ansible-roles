@@ -1,0 +1,22 @@
+# https://likegeeks.com/linux-ldap-server/
+# by nic garner
+# install config
+#
+---
+- name: install ldap tools
+  package:
+    name: "{{ items }}"
+    state: present
+  with_items:
+    - openldap-clients
+    - openldap
+    - openldap-servers
+
+- name: enable ldap
+  service: 
+    name: sldapd
+    state: enabled
+
+#- name: setldap password
+#  command: ldappassword
+
