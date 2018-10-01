@@ -1,0 +1,5 @@
+# ansible role to configure a ldap server
+# by nic garner
+#
+---
+- include: install_ldap.yml
