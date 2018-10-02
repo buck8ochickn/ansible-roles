@@ -1,0 +1,5 @@
+# configuring the inital config for the ldap server this should prompt you for a password.
+# by nic garner
+#
+---
+- name: configure inital password

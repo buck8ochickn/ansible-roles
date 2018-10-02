@@ -1,0 +1,18 @@
+# gobox just throwing everything in main
+#
+# by nic garner
+#
+---
+- name: Install go
+  unarchive:
+    src: https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+
+- name: add basic rules to allow
+  lineinfile: 
+    path: /etc/profile
+    state: present
+    line: 'export PATH=$PATH:/usr/local/go/bin'
+
+

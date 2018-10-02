@@ -1,0 +1,11 @@
+# this is for a go lang box current use expanding.
+# by nic garner
+#
+---
+- name: configure go box
+  hosts: gobox
+  remote_user: root
+  
+  roles:
+    - basic
+    - gobox
