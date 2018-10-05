@@ -21,6 +21,7 @@
     - mlocate
     - nmap
     - open-vm-tools
+    - traceroute
 
 - name: Refresh mlocates database
   shell: updatedb
