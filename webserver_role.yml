@@ -1,0 +1,16 @@
+# Ansible play book for configuring httpd
+# by Nic Garner
+#
+# 16 Sept 2018
+# tested on centos07 
+# version 0.2 beta
+# the goal of this set of roles is to configer a webserver and deployall the needed websites
+---
+- name: configure webserver
+  hosts: web
+  remote_user:root
+
+  roles:
+     - basic
+     - csf
+     - httpd
