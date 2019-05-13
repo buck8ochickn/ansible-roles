@@ -22,6 +22,7 @@
     - nmap
     - open-vm-tools
     - traceroute
+    - NetworkManager-tui
 
 - name: Refresh mlocates database
   shell: updatedb
